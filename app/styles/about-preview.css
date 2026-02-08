@@ -66,6 +66,10 @@
   transition: width 140ms ease, opacity 140ms ease, margin-left 140ms ease, transform 140ms ease;
 }
 
+.about-cta-icon svg {
+  display: block;
+}
+
 @media (hover: hover) {
   .about-cta:hover .about-cta-icon,
   .about-cta:focus-visible .about-cta-icon {

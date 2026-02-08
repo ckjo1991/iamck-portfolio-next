@@ -1,4 +1,5 @@
 import Link from "next/link";
+import GoogleIcon from "../components/GoogleIcon";
 
 export default function Projects() {
   return (
@@ -14,7 +15,9 @@ export default function Projects() {
                 Improving booking clarity and reducing rider confusion in a
                 high-pressure, real-time transport app.
               </p>
-              <span className="project-cta">View case study →</span>
+              <span className="project-cta">
+                View case study <GoogleIcon name="arrow_forward" size={16} />
+              </span>
             </Link>
           </li>
 
@@ -25,7 +28,9 @@ export default function Projects() {
                 Helping households understand electricity usage through clearer
                 data visualization and actionable insights.
               </p>
-              <span className="project-cta">View case study →</span>
+              <span className="project-cta">
+                View case study <GoogleIcon name="arrow_forward" size={16} />
+              </span>
             </Link>
           </li>
 
@@ -36,7 +41,9 @@ export default function Projects() {
                 Streamlining on-demand service booking to reduce drop-offs and speed up
                 task matching for users and providers.
               </p>
-              <span className="project-cta">View case study →</span>
+              <span className="project-cta">
+                View case study <GoogleIcon name="arrow_forward" size={16} />
+              </span>
             </Link>
           </li>
         </ul>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExperiencePagination from "./ExperiencePagination";
+import GoogleIcon from "../components/GoogleIcon";
 
 export const metadata: Metadata = {
   title: "Resume",
@@ -25,22 +26,7 @@ export default function ResumePage() {
               title="Download resume"
               data-tooltip="Download resume"
             >
-              <svg
-                className="resume-inline-cta-svg"
-                viewBox="0 0 24 24"
-                width="18"
-                height="18"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 3v10m0 0l4-4m-4 4l-4-4M5 15v3h14v-3"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <GoogleIcon name="download" size={18} />
             </a>
           </div>
           <p className="resume-role">Junior UX Designer</p>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import GoogleIcon from "../components/GoogleIcon";
 
 type ExperienceItem = {
   role: string;
@@ -125,6 +126,14 @@ export default function ExperiencePagination() {
         <span className="resume-entry-role">{item.role}</span>
         <span className="resume-meta">{item.company}</span>
         <span className="resume-meta">{item.duration}</span>
+        <span className="resume-entry-toggle" aria-hidden="true">
+          <span className="resume-entry-toggle-icon resume-entry-toggle-icon--closed">
+            <GoogleIcon name="add" size={18} />
+          </span>
+          <span className="resume-entry-toggle-icon resume-entry-toggle-icon--open">
+            <GoogleIcon name="remove" size={18} />
+          </span>
+        </span>
       </summary>
       <div className="resume-entry-details">
         <ul className="resume-list">
@@ -144,28 +153,31 @@ export default function ExperiencePagination() {
 
       {olderItems.length > 0 ? (
         <>
+          <div
+            id="older-experience-list"
+            className="resume-entries resume-more-content"
+            hidden={!showAll}
+          >
+            {olderItems.map(renderItem)}
+          </div>
+
           {showAll ? (
-            <>
-              <div id="older-experience-list" className="resume-more-content">
-                {olderItems.map(renderItem)}
-              </div>
-              <button
-                type="button"
-                className="resume-more-toggle"
-                aria-expanded={showAll}
-                aria-controls="older-experience-list"
-                onClick={() => setShowAll((prev) => !prev)}
-              >
-                Show fewer roles
-              </button>
-            </>
+            <button
+              type="button"
+              className="resume-more-toggle"
+              aria-expanded={showAll}
+              aria-controls="older-experience-list"
+              onClick={() => setShowAll(false)}
+            >
+              Show fewer roles
+            </button>
           ) : (
             <button
               type="button"
               className="resume-more-toggle"
               aria-expanded={showAll}
               aria-controls="older-experience-list"
-              onClick={() => setShowAll((prev) => !prev)}
+              onClick={() => setShowAll(true)}
             >
               Show more
             </button>

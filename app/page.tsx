@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Hero from "./sections/Hero";
 import Link from "next/link";
+import GoogleIcon from "./components/GoogleIcon";
 
 export default function Page() {
   const projectsSectionRef = useRef<HTMLElement | null>(null);
@@ -114,7 +115,7 @@ export default function Page() {
                     through flow and UI changes.
                   </p>
                   <Link href="/projects/angkas" className="project-cta">
-                    View full case study →
+                    View full case study <GoogleIcon name="arrow_forward" size={16} />
                   </Link>
                 </div>
               </article>
@@ -132,7 +133,7 @@ export default function Page() {
                     breakdowns and trends.
                   </p>
                   <Link href="/projects/kuryenteph" className="project-cta">
-                    View full case study →
+                    View full case study <GoogleIcon name="arrow_forward" size={16} />
                   </Link>
                 </div>
               </article>
@@ -150,7 +151,7 @@ export default function Page() {
                     customers and workers.
                   </p>
                   <Link href="/projects/fastph" className="project-cta">
-                    View full case study →
+                    View full case study <GoogleIcon name="arrow_forward" size={16} />
                   </Link>
                 </div>
               </article>
@@ -179,11 +180,15 @@ export default function Page() {
           <div className="about-actions">
             <Link href="/about" className="about-cta about-cta-primary">
               Read my story
-              <span className="about-cta-icon" aria-hidden="true">→</span>
+              <span className="about-cta-icon" aria-hidden="true">
+                <GoogleIcon name="arrow_forward" size={18} />
+              </span>
             </Link>
             <Link href="/resume" className="about-cta about-cta-tertiary">
               My resume
-              <span className="about-cta-icon" aria-hidden="true">→</span>
+              <span className="about-cta-icon" aria-hidden="true">
+                <GoogleIcon name="arrow_forward" size={18} />
+              </span>
             </Link>
           </div>
         </div>

@@ -17,6 +17,21 @@
   pointer-events: none;
   transform: translateX(120%);
   transition: transform 220ms ease, box-shadow 160ms ease, opacity 180ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-to-top-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.back-to-top-icon svg {
+  display: block;
+  color: #0b0b0b; /* Force fill color for Android browsers that don't inherit currentColor into SVG reliably */
 }
 
 .back-to-top.is-visible {

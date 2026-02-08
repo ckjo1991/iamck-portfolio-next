@@ -51,10 +51,6 @@
   text-decoration: none;
 }
 
-.resume-inline-cta-svg {
-  display: block;
-}
-
 .resume-inline-cta:hover {
   text-decoration: none;
   background: #0b1220;
@@ -184,25 +180,7 @@
 }
 
 .resume-entry-summary::after {
-  content: "+";
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
-  border-radius: 999px;
-  border: 1px solid #cbd5e1;
-  color: #334155;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 1;
-}
-
-.resume-entry-collapsible[open] .resume-entry-summary::after {
-  content: "−";
+  content: none;
 }
 
 .resume-entry-summary:hover {
@@ -223,6 +201,39 @@
 
 .resume-entry-summary .resume-meta {
   margin-top: 0;
+}
+
+.resume-entry-toggle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resume-entry-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resume-entry-toggle-icon--open {
+  display: none;
+}
+
+.resume-entry-collapsible[open] .resume-entry-toggle-icon--closed {
+  display: none;
+}
+
+.resume-entry-collapsible[open] .resume-entry-toggle-icon--open {
+  display: inline-flex;
 }
 
 .resume-entry-details {
@@ -375,9 +386,13 @@
   }
 
   .resume-entry-summary::after {
+    content: none;
+  }
+
+  .resume-entry-toggle {
     right: 12px;
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
   }
 
   .resume-entry-details {

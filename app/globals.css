@@ -60,8 +60,20 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+/* Make inline links distinguishable without relying on color alone (WCAG 1.4.1 / 1.4.3). */
+main p a:not([class]),
+main li a:not([class]),
+main dd a:not([class]),
+main dt a:not([class]) {
   text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+main p a:not([class]):hover,
+main li a:not([class]):hover,
+main dd a:not([class]):hover,
+main dt a:not([class]):hover {
+  text-decoration-thickness: 2px;
 }
 
 section {

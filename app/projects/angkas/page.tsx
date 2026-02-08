@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import GoogleIcon from "../../components/GoogleIcon";
 
 export const metadata: Metadata = {
   title: "Angkas App Redesign",
@@ -50,7 +51,7 @@ export default function AngkasPage() {
       <nav className="project-footer-nav" aria-label="Case study navigation">
         <Link href="/projects/fastph" className="project-switch project-switch--prev">
           <span className="project-switch-arrow" aria-hidden="true">
-            ‹
+            <GoogleIcon name="chevron_left" size={18} />
           </span>
           <span className="project-switch-content">
             <span className="project-switch-label">Previous case study</span>
@@ -63,7 +64,7 @@ export default function AngkasPage() {
             <span className="project-switch-title">KuryentePH dashboard</span>
           </span>
           <span className="project-switch-arrow" aria-hidden="true">
-            ›
+            <GoogleIcon name="chevron_right" size={18} />
           </span>
         </Link>
       </nav>

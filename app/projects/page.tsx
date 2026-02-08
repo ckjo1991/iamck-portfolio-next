@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "../components/Breadcrumbs";
+import GoogleIcon from "../components/GoogleIcon";
 
 type ProjectOverview = {
   slug: "angkas" | "kuryenteph" | "fastph";
@@ -96,7 +97,7 @@ export default function ProjectsPage() {
             </div>
 
             <Link href={`/projects/${project.slug}`} className="project-overview-cta">
-              View full case study →
+              View full case study <GoogleIcon name="arrow_forward" size={18} />
             </Link>
           </section>
         ))}
