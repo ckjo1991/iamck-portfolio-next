@@ -42,15 +42,82 @@
 }
 
 .about-cta {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   color: #0b0b0b;
   text-decoration: none;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease;
+}
+
+.about-cta-icon {
+  width: 0;
+  opacity: 0;
+  margin-left: 0;
+  overflow: hidden;
+  transform: translateX(-5px);
+  transition: width 140ms ease, opacity 140ms ease, margin-left 140ms ease, transform 140ms ease;
+}
+
+@media (hover: hover) {
+  .about-cta:hover .about-cta-icon,
+  .about-cta:focus-visible .about-cta-icon {
+    width: 1em;
+    opacity: 1;
+    margin-left: 6px;
+    transform: translateX(0);
+  }
+}
+
+@media (hover: none) {
+  .about-cta:active .about-cta-icon,
+  .about-cta:focus-visible .about-cta-icon {
+    width: 1em;
+    opacity: 1;
+    margin-left: 6px;
+    transform: translateX(0);
+  }
 }
 
 .about-cta:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  background: #f1f5f9;
+}
+
+.about-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.about-cta-primary {
+  background: #111827;
+  border-color: #111827;
+  color: #ffffff;
+}
+
+.about-cta-primary:hover {
+  background: #0b1220;
+  border-color: #0b1220;
+}
+
+.about-cta-tertiary {
+  background: transparent;
+  border-color: transparent;
+  color: #111827;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.about-cta-tertiary:hover {
+  background: #f1f5f9;
 }
 
 @media (max-width: 768px) {

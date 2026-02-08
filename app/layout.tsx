@@ -7,6 +7,7 @@ import Nav from "./sections/Nav";
 import "./styles/case-study.css";
 import "./styles/about-preview.css";
 import "./styles/about.css";
+import "./styles/resume.css";
 import "./styles/contact-preview.css";
 import "./styles/back-to-top.css";
 import "./styles/home-enhancements.css";
@@ -14,6 +15,7 @@ import "./styles/startup-loader.css";
 import "./styles/projects-index.css";
 import BackToTop from "./components/BackToTop";
 import StartupLoader from "./components/StartupLoader";
+import Footer from "./sections/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -43,11 +45,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta charSet="UTF-8" />
+      </head>
       <body suppressHydrationWarning>
+        {/*
+          Accessibility QA checklist (WCAG 2.2 AA):
+          [ ] Keyboard-only navigation works throughout
+          [ ] Screen reader announces all content clearly
+          [ ] Color contrast meets required ratios
+          [ ] Images have appropriate alt text
+          [ ] Forms have labels and clear error handling
+          [ ] Focus indicators are visible and consistent
+          [ ] Markup validates in W3C validator
+          [ ] Automated audits pass (Lighthouse + axe + WAVE)
+        */}
         <StartupLoader />
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <Nav />
         {children}
+        <Footer />
         <BackToTop />
       </body>
     </html>

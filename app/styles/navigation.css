@@ -163,9 +163,11 @@ body.nav-open {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 44px;
+  padding: 10px 8px;
   color: #ffffff;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1;
   opacity: 0.75;
   transition: opacity 0.15s ease;
@@ -173,6 +175,13 @@ body.nav-open {
 
 .nav-list a:hover {
   opacity: 1;
+}
+
+.nav-list a[aria-current="page"] {
+  opacity: 1;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .nav-list a.nav-cta {
@@ -269,7 +278,8 @@ body.nav-open {
   }
 
   .nav-list a {
-    display: inline-block;
+    display: inline-flex;
+    min-height: 44px;
     font-size: 24px;
     font-weight: 500;
     opacity: 1;

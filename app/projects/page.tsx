@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 type ProjectOverview = {
   slug: "angkas" | "kuryenteph" | "fastph";
@@ -58,6 +59,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <main id="main-content" className="projects-page">
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Projects" }]} />
       <section className="projects-page-hero">
         <h1>Projects</h1>
         <p>

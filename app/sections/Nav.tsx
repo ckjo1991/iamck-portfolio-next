@@ -84,17 +84,29 @@ export default function Nav() {
         >
           <ul className="nav-list">
             <li>
-              <Link href="/" onClick={() => setOpen(false)}>
+              <Link
+                href="/"
+                aria-current={pathname === "/" ? "page" : undefined}
+                onClick={() => setOpen(false)}
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/projects" onClick={() => setOpen(false)}>
+              <Link
+                href="/projects"
+                aria-current={pathname === "/projects" ? "page" : undefined}
+                onClick={() => setOpen(false)}
+              >
                 Projects
               </Link>
             </li>
             <li>
-              <Link href="/about" onClick={() => setOpen(false)}>
+              <Link
+                href="/about"
+                aria-current={pathname === "/about" ? "page" : undefined}
+                onClick={() => setOpen(false)}
+              >
                 About
               </Link>
             </li>

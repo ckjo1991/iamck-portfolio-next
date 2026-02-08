@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "About",
@@ -11,6 +12,7 @@ export default function AboutPage() {
   return (
     <main id="main-content">
       <section className="about-page">
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About" }]} />
         <div className="about-container">
           <h1 className="about-title">About</h1>
 
@@ -43,11 +45,12 @@ export default function AboutPage() {
           </ul>
 
           <p className="about-footer">
-            Want to see this in action?{" "}
-            <span style={{ whiteSpace: "nowrap" }}>
-              <Link href="/#projects">Explore my projects</Link> or{" "}
-              <Link href="/#contact">get in touch</Link>.
-            </span>
+            Want to see this in action? <Link href="/projects">Explore my projects</Link> or{" "}
+            <Link href="/#contact">get in touch</Link>.
+          </p>
+
+          <p className="about-footer about-footer-resume">
+            Resume: <Link href="/resume">View online resume</Link>.
           </p>
         </div>
       </section>

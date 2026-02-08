@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "KuryentePH Dashboard",
@@ -10,6 +11,13 @@ export const metadata: Metadata = {
 export default function KuryentePHPage() {
   return (
     <main id="main-content" className="project-page">
+      <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Projects", href: "/projects" },
+          { label: "KuryentePH dashboard" },
+        ]}
+      />
       <section className="project-hero">
         <h1>KuryentePH dashboard</h1>
         <p>
@@ -40,11 +48,23 @@ export default function KuryentePHPage() {
       </section>
 
       <nav className="project-footer-nav" aria-label="Case study navigation">
-        <Link href="/projects" className="project-nav-link project-nav-link--secondary">
-          ← Back to all projects
+        <Link href="/projects/angkas" className="project-switch project-switch--prev">
+          <span className="project-switch-arrow" aria-hidden="true">
+            ‹
+          </span>
+          <span className="project-switch-content">
+            <span className="project-switch-label">Previous case study</span>
+            <span className="project-switch-title">Angkas app redesign</span>
+          </span>
         </Link>
-        <Link href="/projects/fastph" className="project-nav-link project-nav-link--primary">
-          Next case study: FastPH service flow →
+        <Link href="/projects/fastph" className="project-switch project-switch--next">
+          <span className="project-switch-content">
+            <span className="project-switch-label">Next case study</span>
+            <span className="project-switch-title">FastPH service flow</span>
+          </span>
+          <span className="project-switch-arrow" aria-hidden="true">
+            ›
+          </span>
         </Link>
       </nav>
     </main>

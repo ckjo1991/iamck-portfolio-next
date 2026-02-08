@@ -176,9 +176,16 @@ export default function Page() {
             and design with evidence, not guesswork.
           </p>
 
-          <Link href="/about" className="about-cta">
-            Read my story →
-          </Link>
+          <div className="about-actions">
+            <Link href="/about" className="about-cta about-cta-primary">
+              Read my story
+              <span className="about-cta-icon" aria-hidden="true">→</span>
+            </Link>
+            <Link href="/resume" className="about-cta about-cta-tertiary">
+              My resume
+              <span className="about-cta-icon" aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -201,28 +208,25 @@ export default function Page() {
               href="https://www.linkedin.com/in/ckjobcena/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Open LinkedIn profile in a new tab"
               className="contact-social-btn"
             >
-              LinkedIn
+              LinkedIn <span className="sr-only">(opens in a new tab)</span>
             </a>
             <a
               href="https://dribbble.com/CKJObcena"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Open Dribbble profile in a new tab"
               className="contact-social-btn"
             >
-              Dribbble
+              Dribbble <span className="sr-only">(opens in a new tab)</span>
             </a>
             <a
               href="https://www.instagram.com/ckobcena/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Open Instagram profile in a new tab"
               className="contact-social-btn"
             >
-              Instagram
+              Instagram <span className="sr-only">(opens in a new tab)</span>
             </a>
           </div>
         </div>
