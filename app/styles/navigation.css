@@ -148,21 +148,51 @@ body.nav-open {
 .nav-list {
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 28px;
   margin: 0;
   padding: 0;
 }
 
+.nav-list li {
+  display: flex;
+  align-items: center;
+}
+
 .nav-list a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: #ffffff;
   text-decoration: none;
   font-size: 14px;
+  line-height: 1;
   opacity: 0.75;
   transition: opacity 0.15s ease;
 }
 
 .nav-list a:hover {
   opacity: 1;
+}
+
+.nav-list a.nav-cta {
+  opacity: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0b0b0b;
+  border: 1px solid transparent;
+  font-weight: 600;
+  transition: transform 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.nav-list a.nav-cta:hover {
+  background: #f3f4f6;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
 }
 
 .nav-list a:focus-visible {
@@ -205,6 +235,7 @@ body.nav-open {
   .nav-list {
     flex-direction: column;
     gap: 32px;
+    align-items: center;
     padding: 0;
     margin: 0;
     text-align: center;
@@ -253,6 +284,11 @@ body.nav-open {
 
   .nav-list a:active {
     transform: scale(0.98);
+  }
+
+  .nav-list a.nav-cta {
+    font-size: 17px;
+    padding: 11px 18px;
   }
 }
 

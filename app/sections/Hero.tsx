@@ -21,6 +21,7 @@ export default function Hero() {
     }
 
     let rafId = 0;
+    let ticking = false;
 
     const clamp = (value: number, min: number, max: number) => (
       Math.min(max, Math.max(min, value))
@@ -43,16 +44,20 @@ export default function Hero() {
 
     const applyTransforms = () => {
       if (backgroundRef.current) {
-        backgroundRef.current.style.transform = `translateY(${getSectionOffset(sectionRef.current, 36)}px)`;
+        backgroundRef.current.style.transform = `translateY(${getSectionOffset(sectionRef.current, 16)}px)`;
       }
       if (innerRef.current) {
-        innerRef.current.style.transform = `translateY(${getSectionOffset(sectionRef.current, 14)}px)`;
+        innerRef.current.style.transform = `translateY(${getSectionOffset(sectionRef.current, 6)}px)`;
       }
     };
 
     const requestTransformUpdate = () => {
-      cancelAnimationFrame(rafId);
-      rafId = window.requestAnimationFrame(applyTransforms);
+      if (ticking) return;
+      ticking = true;
+      rafId = window.requestAnimationFrame(() => {
+        applyTransforms();
+        ticking = false;
+      });
     };
 
     window.addEventListener("scroll", requestTransformUpdate, { passive: true });
@@ -78,10 +83,10 @@ export default function Hero() {
         </h1>
 
         <div className="hero-actions">
-          <Link href="/#projects" className="btn-primary">
+          <Link href="/projects" className="btn-primary">
             View projects
           </Link>
-          <Link href="/#about" className="btn-secondary">
+          <Link href="/about" className="btn-secondary">
             About me
           </Link>
         </div>

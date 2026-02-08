@@ -29,6 +29,7 @@ export default function Page() {
     }
 
     let rafId = 0;
+    let ticking = false;
 
     const clamp = (value: number, min: number, max: number) => (
       Math.min(max, Math.max(min, value))
@@ -51,30 +52,34 @@ export default function Page() {
 
     const applyTransforms = () => {
       if (projectsBgRef.current) {
-        projectsBgRef.current.style.transform = `translateY(${getSectionOffset(projectsSectionRef.current, 24)}px)`;
+        projectsBgRef.current.style.transform = `translateY(${getSectionOffset(projectsSectionRef.current, 12)}px)`;
       }
       if (projectsInnerRef.current) {
-        projectsInnerRef.current.style.transform = `translateY(${getSectionOffset(projectsSectionRef.current, 10)}px)`;
+        projectsInnerRef.current.style.transform = `translateY(${getSectionOffset(projectsSectionRef.current, 4)}px)`;
       }
 
       if (aboutBgRef.current) {
-        aboutBgRef.current.style.transform = `translateY(${getSectionOffset(aboutSectionRef.current, 20)}px)`;
+        aboutBgRef.current.style.transform = `translateY(${getSectionOffset(aboutSectionRef.current, 10)}px)`;
       }
       if (aboutInnerRef.current) {
-        aboutInnerRef.current.style.transform = `translateY(${getSectionOffset(aboutSectionRef.current, -8)}px)`;
+        aboutInnerRef.current.style.transform = `translateY(${getSectionOffset(aboutSectionRef.current, -3)}px)`;
       }
 
       if (contactBgRef.current) {
-        contactBgRef.current.style.transform = `translateY(${getSectionOffset(contactSectionRef.current, 20)}px)`;
+        contactBgRef.current.style.transform = `translateY(${getSectionOffset(contactSectionRef.current, 10)}px)`;
       }
       if (contactInnerRef.current) {
-        contactInnerRef.current.style.transform = `translateY(${getSectionOffset(contactSectionRef.current, 10)}px)`;
+        contactInnerRef.current.style.transform = `translateY(${getSectionOffset(contactSectionRef.current, 4)}px)`;
       }
     };
 
     const requestTransformUpdate = () => {
-      cancelAnimationFrame(rafId);
-      rafId = window.requestAnimationFrame(applyTransforms);
+      if (ticking) return;
+      ticking = true;
+      rafId = window.requestAnimationFrame(() => {
+        applyTransforms();
+        ticking = false;
+      });
     };
 
     window.addEventListener("scroll", requestTransformUpdate, { passive: true });
@@ -98,38 +103,65 @@ export default function Page() {
 
           <ul className="projects-list">
             <li>
-              <Link href="/projects/angkas" className="project-item">
-                <h3 className="project-name">Angkas app redesign</h3>
-                <p className="project-summary">
-                  Improving booking clarity and reducing failed ride attempts
-                  through flow and UI changes.
-                </p>
-                <span className="project-cta">View case study →</span>
-              </Link>
+              <article className="project-item">
+                <span className="project-default-title" aria-hidden="true">
+                  Angkas app redesign
+                </span>
+                <div className="project-overlay">
+                  <h3 className="project-name">Angkas app redesign</h3>
+                  <p className="project-summary">
+                    Improving booking clarity and reducing failed ride attempts
+                    through flow and UI changes.
+                  </p>
+                  <Link href="/projects/angkas" className="project-cta">
+                    View full case study →
+                  </Link>
+                </div>
+              </article>
             </li>
 
             <li>
-              <Link href="/projects/kuryenteph" className="project-item">
-                <h3 className="project-name">KuryentePH dashboard</h3>
-                <p className="project-summary">
-                  Helping households understand daily energy use with clearer
-                  breakdowns and trends.
-                </p>
-                <span className="project-cta">View case study →</span>
-              </Link>
+              <article className="project-item">
+                <span className="project-default-title" aria-hidden="true">
+                  KuryentePH dashboard
+                </span>
+                <div className="project-overlay">
+                  <h3 className="project-name">KuryentePH dashboard</h3>
+                  <p className="project-summary">
+                    Helping households understand daily energy use with clearer
+                    breakdowns and trends.
+                  </p>
+                  <Link href="/projects/kuryenteph" className="project-cta">
+                    View full case study →
+                  </Link>
+                </div>
+              </article>
             </li>
 
             <li>
-              <Link href="/projects/fastph" className="project-item">
-                <h3 className="project-name">FastPH service flow</h3>
-                <p className="project-summary">
-                  Redesigning task matching to reduce drop-offs for both customers
-                  and workers.
-                </p>
-                <span className="project-cta">View case study →</span>
-              </Link>
+              <article className="project-item">
+                <span className="project-default-title" aria-hidden="true">
+                  FastPH service flow
+                </span>
+                <div className="project-overlay">
+                  <h3 className="project-name">FastPH service flow</h3>
+                  <p className="project-summary">
+                    Redesigning task matching to reduce drop-offs for both
+                    customers and workers.
+                  </p>
+                  <Link href="/projects/fastph" className="project-cta">
+                    View full case study →
+                  </Link>
+                </div>
+              </article>
             </li>
           </ul>
+
+          <div className="projects-actions">
+            <Link href="/projects" className="projects-page-cta">
+              Explore all projects
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -160,11 +192,8 @@ export default function Page() {
             notes on UX and product thinking, feel free to reach out.
           </p>
 
-          <a
-            href="mailto:ckjobcena@gmail.com"
-            className="contact-email"
-          >
-            ckjobcena@gmail.com
+          <a href="mailto:ckjobcena@gmail.com" className="cta-primary contact-cta-primary">
+            Let&apos;s work together
           </a>
 
           <div className="contact-links">
@@ -173,24 +202,25 @@ export default function Page() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open LinkedIn profile in a new tab"
+              className="contact-social-btn"
             >
               LinkedIn
             </a>
-            <span> · </span>
             <a
               href="https://dribbble.com/CKJObcena"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open Dribbble profile in a new tab"
+              className="contact-social-btn"
             >
               Dribbble
             </a>
-            <span> · </span>
             <a
               href="https://www.instagram.com/ckobcena/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open Instagram profile in a new tab"
+              className="contact-social-btn"
             >
               Instagram
             </a>

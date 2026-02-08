@@ -10,7 +10,7 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  const sectionHref = (id: "projects" | "about" | "contact") => (
+  const sectionHref = (id: "contact") => (
     pathname === "/" ? `#${id}` : `/#${id}`
   );
 
@@ -89,18 +89,22 @@ export default function Nav() {
               </Link>
             </li>
             <li>
-              <Link href={sectionHref("projects")} onClick={() => setOpen(false)}>
+              <Link href="/projects" onClick={() => setOpen(false)}>
                 Projects
               </Link>
             </li>
             <li>
-              <Link href={sectionHref("about")} onClick={() => setOpen(false)}>
+              <Link href="/about" onClick={() => setOpen(false)}>
                 About
               </Link>
             </li>
             <li>
-              <Link href={sectionHref("contact")} onClick={() => setOpen(false)}>
-                Get in touch
+              <Link
+                href={sectionHref("contact")}
+                className="nav-cta"
+                onClick={() => setOpen(false)}
+              >
+                Contact Me
               </Link>
             </li>
           </ul>

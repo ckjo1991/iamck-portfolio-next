@@ -1,12 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Angkas App Redesign",
+  description:
+    "Case study: redesigning the Angkas booking flow to improve clarity and reduce failed ride attempts.",
+};
 
 export default function AngkasPage() {
   return (
     <main id="main-content" className="project-page">
-      <Link href="/#projects" className="back-link">
-        ← Back to projects
-      </Link>
-
       <section className="project-hero">
         <h1>Angkas app redesign</h1>
         <p>
@@ -35,6 +38,15 @@ export default function AngkasPage() {
           attempts by addressing uncertainty at key moments.
         </p>
       </section>
+
+      <nav className="project-footer-nav" aria-label="Case study navigation">
+        <Link href="/projects" className="project-nav-link project-nav-link--secondary">
+          ← Back to all projects
+        </Link>
+        <Link href="/projects/kuryenteph" className="project-nav-link project-nav-link--primary">
+          Next case study: KuryentePH dashboard →
+        </Link>
+      </nav>
     </main>
   );
 }

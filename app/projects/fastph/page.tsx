@@ -1,12 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "FastPH Service Flow",
+  description:
+    "Case study: streamlining the FastPH booking and task-matching flow to reduce drop-offs and uncertainty.",
+};
 
 export default function FastPHPage() {
   return (
     <main id="main-content" className="project-page">
-      <Link href="/#projects" className="back-link">
-        ← Back to projects
-      </Link>
-
       <section className="project-hero">
         <h1>FastPH service flow</h1>
         <p>
@@ -35,6 +38,15 @@ export default function FastPHPage() {
           made the service feel faster without increasing system complexity.
         </p>
       </section>
+
+      <nav className="project-footer-nav" aria-label="Case study navigation">
+        <Link href="/projects" className="project-nav-link project-nav-link--secondary">
+          ← Back to all projects
+        </Link>
+        <Link href="/projects/angkas" className="project-nav-link project-nav-link--primary">
+          Next case study: Angkas app redesign →
+        </Link>
+      </nav>
     </main>
   );
 }

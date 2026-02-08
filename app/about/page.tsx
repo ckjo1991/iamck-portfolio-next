@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Learn more about CK's UX approach: framing messy problems, designing for clarity, and validating with data-informed decisions.",
+};
 
 export default function AboutPage() {
   return (

@@ -1,0 +1,147 @@
+.projects-page {
+  min-height: 100vh;
+  padding: 110px 24px 96px;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  color: #0b0b0b;
+}
+
+.projects-page-hero,
+.project-overview {
+  max-width: 920px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+
+.projects-page-hero {
+  padding: 48px;
+  margin-bottom: 20px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+.projects-page-hero h1 {
+  font-size: clamp(30px, 5vw, 44px);
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+
+.projects-page-hero p {
+  margin: 0 0 14px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #334155;
+}
+
+.projects-page-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 0 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #f8fafc;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.projects-page-list {
+  display: grid;
+  gap: 20px;
+}
+
+.project-overview {
+  padding: 38px 42px;
+}
+
+.project-overview h2 {
+  font-size: clamp(25px, 4vw, 34px);
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+.project-overview-summary {
+  margin: 0 0 24px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #334155;
+}
+
+.project-overview-details {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 22px;
+}
+
+.project-overview-details div {
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+}
+
+.project-overview-details h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #0f172a;
+}
+
+.project-overview-details p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #334155;
+}
+
+.project-overview-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #0b0b0b;
+  color: #0b0b0b;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 140ms ease, color 140ms ease;
+}
+
+.project-overview-cta:hover {
+  text-decoration: none;
+  background: #0b0b0b;
+  color: #ffffff;
+}
+
+@media (max-width: 980px) {
+  .project-overview-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-page {
+    padding: 88px 16px 64px;
+  }
+
+  .projects-page-hero {
+    padding: 30px 22px;
+  }
+
+  .projects-page-hero p {
+    font-size: 16px;
+  }
+
+  .project-overview {
+    padding: 28px 22px;
+  }
+
+  .project-overview-summary {
+    font-size: 16px;
+  }
+}

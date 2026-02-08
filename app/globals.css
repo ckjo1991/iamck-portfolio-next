@@ -25,19 +25,23 @@ body {
 .skip-link {
   position: absolute;
   left: 12px;
-  top: -48px;
+  top: 10px;
+  transform: translateY(-140%);
   z-index: 3000;
-  padding: 10px 12px;
-  background: #ffffff;
-  color: #0b0b0b;
-  border: 1px solid #0b0b0b;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #111827;
+  border: 1px solid #d1d5db;
   border-radius: 8px;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  transition: transform 0.18s ease;
 }
 
 .skip-link:focus {
-  top: 12px;
+  transform: translateY(0);
 }
 
 h1, h2, h3, h4 {

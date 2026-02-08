@@ -1,0 +1,56 @@
+"use client";
+
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
+export default function StartupLoader() {
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const minDuration = reduceMotion ? 280 : 1700;
+    const maxDuration = 3200;
+    const startedAt = performance.now();
+
+    let hideTimer: number | undefined;
+    const fallbackTimer = window.setTimeout(() => setVisible(false), maxDuration);
+
+    const hideLoader = () => {
+      const elapsed = performance.now() - startedAt;
+      const remaining = Math.max(0, minDuration - elapsed);
+      hideTimer = window.setTimeout(() => setVisible(false), remaining);
+    };
+
+    const onLoad = () => hideLoader();
+
+    if (document.readyState === "complete") {
+      hideLoader();
+    } else {
+      window.addEventListener("load", onLoad, { once: true });
+    }
+
+    return () => {
+      if (hideTimer) {
+        window.clearTimeout(hideTimer);
+      }
+      window.clearTimeout(fallbackTimer);
+      window.removeEventListener("load", onLoad);
+    };
+  }, []);
+
+  return (
+    <div className={`startup-loader ${visible ? "is-visible" : "is-hidden"}`} aria-hidden={!visible}>
+      <div className="startup-loader-content" role="status" aria-live="polite">
+        <span className="startup-loader-mark" aria-hidden="true">
+          <Image className="startup-loader-logo startup-loader-logo--base" src="/ck.svg" alt="" width={84} height={84} priority />
+          <span className="startup-loader-fill" aria-hidden="true">
+            <span className="startup-loader-fill-logo">
+              <Image className="startup-loader-logo startup-loader-logo--fill" src="/ck.svg" alt="" width={84} height={84} priority />
+            </span>
+            <span className="startup-loader-wave" />
+          </span>
+        </span>
+      </div>
+    </div>
+  );
+}

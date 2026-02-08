@@ -13,27 +13,38 @@ export default function BackToTop() {
   };
 
   useEffect(() => {
+    const getTriggerY = () => {
+      const hero = document.querySelector(".hero") as HTMLElement | null;
+      const header = document.querySelector(".site-header") as HTMLElement | null;
+      const headerHeight = header ? header.getBoundingClientRect().height : 0;
+
+      if (!hero) return 120;
+      return Math.max(120, hero.offsetTop + hero.offsetHeight - headerHeight);
+    };
+
     const onScroll = () => {
-      const scrolled = window.scrollY + window.innerHeight;
-      const height = document.documentElement.scrollHeight || document.body.scrollHeight;
-      setVisible(scrolled >= height - 120);
+      setVisible(window.scrollY >= getTriggerY());
     };
 
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
-
-  if (!visible) return null;
 
   return (
     <button
       type="button"
-      className="back-to-top"
+      className={`back-to-top ${visible ? "is-visible" : ""}`}
       aria-label="Back to top"
+      aria-hidden={!visible}
+      tabIndex={visible ? 0 : -1}
       onClick={handleBackToTop}
     >
-      Back to top
+      ↑ Top
     </button>
   );
 }

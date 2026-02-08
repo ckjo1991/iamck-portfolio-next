@@ -1,12 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "KuryentePH Dashboard",
+  description:
+    "Case study: improving energy-use comprehension in KuryentePH through clearer breakdowns, trends, and context.",
+};
 
 export default function KuryentePHPage() {
   return (
     <main id="main-content" className="project-page">
-      <Link href="/#projects" className="back-link">
-        ← Back to projects
-      </Link>
-
       <section className="project-hero">
         <h1>KuryentePH dashboard</h1>
         <p>
@@ -35,6 +38,15 @@ export default function KuryentePHPage() {
           helping users make more informed decisions about their consumption.
         </p>
       </section>
+
+      <nav className="project-footer-nav" aria-label="Case study navigation">
+        <Link href="/projects" className="project-nav-link project-nav-link--secondary">
+          ← Back to all projects
+        </Link>
+        <Link href="/projects/fastph" className="project-nav-link project-nav-link--primary">
+          Next case study: FastPH service flow →
+        </Link>
+      </nav>
     </main>
   );
 }
