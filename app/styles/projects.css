@@ -1,18 +1,33 @@
 .projects-preview {
-  padding: 80px 24px;
+  padding: var(--section-pt) var(--section-sides) var(--section-pb);
   background: #ffffff;
   color: #0b0b0b;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.projects-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 50%, #f5f5f5 100%);
+  opacity: 0.2;
+  z-index: 0;
+  will-change: transform;
 }
 
 .projects-inner {
-  max-width: 960px;
+  max-width: 1040px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  will-change: transform;
 }
 
 .projects-title {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 600;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 .projects-list {
@@ -20,37 +35,73 @@
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  align-items: stretch;
 }
 
 .project-item {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
   border: 1px solid #e4e4e7;
-  border-radius: 12px;
+  border-radius: 16px;
+  background: #ffffff;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
 }
 
 .project-name {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
 .project-summary {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
-  color: #52525b;
+  color: #3f3f46;
+  margin-bottom: 16px;
+  max-width: 720px;
+  flex-grow: 1;
+}
+
+.project-cta {
+  font-size: 15px;
+  font-weight: 500;
+  color: #0b0b0b;
+  opacity: 0.6;
+}
+
+.project-item:hover .project-cta {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
   .projects-preview {
-    padding: 64px 16px;
+    padding: var(--section-pt-mobile) var(--section-sides-mobile) var(--section-pb-mobile);
   }
 
   .projects-title {
-    font-size: 24px;
+    font-size: 26px;
+    margin-bottom: 32px;
   }
 
   .project-item {
-    padding: 16px;
+    padding: 20px;
+  }
+
+  .project-name {
+    font-size: 18px;
+  }
+
+  .project-summary {
+    font-size: 15px;
   }
 }

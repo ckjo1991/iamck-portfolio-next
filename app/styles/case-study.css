@@ -1,0 +1,117 @@
+.project-page {
+  min-height: 100vh;
+  padding: 110px 24px 96px;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  color: #0b0b0b;
+}
+
+.back-link {
+  display: inline-block;
+  margin: 0 auto 28px;
+  max-width: 860px;
+  width: 100%;
+  color: #374151;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #111827;
+  text-decoration: underline;
+}
+
+.project-hero,
+.project-content {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+
+.project-hero {
+  padding: 48px;
+  margin-bottom: 20px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+.project-hero h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.project-hero p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #334155;
+  max-width: 760px;
+}
+
+.project-content {
+  padding: 40px 48px;
+}
+
+.project-content h2 {
+  font-size: 24px;
+  margin: 0 0 12px;
+}
+
+.project-content p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #334155;
+  margin: 0 0 28px;
+}
+
+.project-content ul {
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+}
+
+.project-content li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  color: #334155;
+}
+
+.project-content li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #0b0b0b;
+}
+
+@media (max-width: 768px) {
+  .project-page {
+    padding: 88px 16px 64px;
+  }
+
+  .back-link {
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .project-hero {
+    padding: 30px 22px;
+    margin-bottom: 14px;
+  }
+
+  .project-hero p {
+    font-size: 16px;
+  }
+
+  .project-content {
+    padding: 28px 22px;
+  }
+
+  .project-content h2 {
+    font-size: 21px;
+  }
+}

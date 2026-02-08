@@ -1,0 +1,17 @@
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+.hero,
+.projects-preview,
+.about-preview,
+.contact-preview {
+  scroll-snap-align: start;
+}
+
+@media (max-width: 900px) {
+  html {
+    scroll-snap-type: none;
+  }
+}

@@ -1,16 +1,32 @@
 .hero {
   min-height: 100vh;
+  position: relative;
+  z-index: 0;
+  pointer-events: auto;
   display: flex;
   align-items: center;
-  padding: 96px 24px 64px;
+  padding: var(--section-pt) var(--section-sides) var(--section-pb);
   background: #0b0b0b;
   color: #ffffff;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0b0b0b 50%, #1a1a1a 100%);
+  opacity: 0.3;
+  z-index: -1;
+  will-change: transform;
 }
 
 .hero-inner {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  will-change: transform;
 }
 
 .hero-eyebrow {
@@ -84,7 +100,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding: 72px 16px 48px;
+    padding: var(--section-pt-mobile) var(--section-sides-mobile) var(--section-pb-mobile);
     align-items: flex-start;
   }
 
