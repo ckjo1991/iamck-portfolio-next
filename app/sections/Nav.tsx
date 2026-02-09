@@ -190,7 +190,7 @@ export default function Nav() {
           </ul>
         </nav>
 
-        {isMobile && drawerMounted ? (
+        {isMobile && open ? (
           <button
             type="button"
             className="nav-overlay"
