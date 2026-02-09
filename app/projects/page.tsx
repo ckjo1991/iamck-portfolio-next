@@ -77,6 +77,7 @@ export default function ProjectsPage() {
             key={project.slug}
             className="project-overview"
             aria-labelledby={`project-${project.slug}`}
+            data-project={project.slug}
           >
             <h2 id={`project-${project.slug}`}>{project.title}</h2>
             <p className="project-overview-summary">{project.summary}</p>
