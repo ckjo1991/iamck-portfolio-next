@@ -163,7 +163,7 @@ body.nav-open {
 }
 
 /* Best practice: logo/brand already links to Home on desktop; keep "Home" inside the mobile menu. */
-.nav-item-home {
+.nav-list .nav-item-home {
   display: none;
 }
 
@@ -219,7 +219,7 @@ body.nav-open {
 
 /* Mobile full-screen drawer */
 @media (max-width: 768px) {
-  .nav-item-home {
+  .nav-list .nav-item-home {
     display: flex;
   }
 
