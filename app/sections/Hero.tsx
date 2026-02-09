@@ -74,21 +74,19 @@ export default function Hero() {
     <section className="hero" ref={sectionRef}>
       <div className="hero-background" ref={backgroundRef} />
       <div className="hero-inner" ref={innerRef}>
-        <p className="hero-path">Home &gt; Hero</p>
-        <p className="hero-eyebrow">hi, i’m ck</p>
-
-        <h1 className="hero-title">
-          UX Designer With An Analytics Background
-          <br />
-          I Turn Messy Workflows Into Clear, Measurable Products.
-        </h1>
+        <p className="hero-eyebrow">Junior UX Designer (Generalist)</p>
+        <h1 className="hero-title">CK Obcena</h1>
+        <p className="hero-description">
+          I turn messy workflows into clear, measurable product experiences. I focus on
+          service flows, dashboard UX, and lightweight design systems.
+        </p>
 
         <div className="hero-actions">
-          <Link href="/projects" className="btn-primary">
-            View projects
+          <Link href="#projects" className="btn-primary">
+            View case studies
           </Link>
-          <Link href="/about" className="btn-secondary">
-            About me
+          <Link href="/resume" className="btn-secondary">
+            Resume
           </Link>
         </div>
       </div>

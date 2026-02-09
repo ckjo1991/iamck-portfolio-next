@@ -32,7 +32,7 @@
 }
 
 .proof-inner {
-  max-width: 1040px;
+  max-width: var(--container);
   margin: 0 auto;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .process-inner {
-  max-width: 1040px;
+  max-width: var(--container);
   margin: 0 auto;
 }
 

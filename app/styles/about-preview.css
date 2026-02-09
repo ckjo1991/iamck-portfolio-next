@@ -16,7 +16,7 @@
 }
 
 .about-inner {
-  max-width: 760px;
+  max-width: var(--container);
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -29,12 +29,19 @@
   margin-bottom: 24px;
 }
 
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 34px;
+  align-items: start;
+}
+
 .about-copy {
   font-size: 17px;
   line-height: 1.75;
   color: #27272a;
   margin-bottom: 18px;
-  max-width: 620px;
+  max-width: var(--container-text);
 }
 
 .about-copy:last-of-type {
@@ -101,6 +108,51 @@
   flex-wrap: wrap;
 }
 
+.about-highlights {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 18px 18px 14px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+}
+
+.about-highlights-title {
+  margin: 0 0 12px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+.about-highlights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.about-highlights-list li {
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  padding: 12px 12px 10px;
+}
+
+.about-highlight-title {
+  display: block;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.about-highlight-copy {
+  display: block;
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 .about-cta-primary {
   background: #111827;
   border-color: #111827;
@@ -132,6 +184,11 @@
   .about-title {
     font-size: 26px;
     margin-bottom: 20px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .about-copy {

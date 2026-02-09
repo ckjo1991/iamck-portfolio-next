@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import Hero from "./sections/Hero";
 import Link from "next/link";
 import GoogleIcon from "./components/GoogleIcon";
+import { featuredProjects } from "./data/projects";
+import ProjectCard from "./components/ProjectCard";
 
 export default function Page() {
   const projectsSectionRef = useRef<HTMLElement | null>(null);
@@ -97,100 +99,77 @@ export default function Page() {
     <main id="main-content">
       <Hero />
 
-      <section id="projects" className="projects-preview" ref={projectsSectionRef}>
-        <div className="projects-bg" ref={projectsBgRef} />
-        <div className="projects-inner" ref={projectsInnerRef}>
-          <h2 className="projects-title">Selected projects</h2>
+      <section id="about" className="about-preview" ref={aboutSectionRef}>
+        <div className="about-bg" ref={aboutBgRef} />
+        <div className="about-inner" ref={aboutInnerRef}>
+          <div className="about-grid">
+            <div>
+              <h2 className="about-title">About me</h2>
 
-          <ul className="projects-list">
-            <li>
-              <article className="project-item" data-project="angkas">
-                <span className="project-default-title" aria-hidden="true">
-                  Angkas app redesign
-                </span>
-                <div className="project-overlay">
-                  <h3 className="project-name">Angkas app redesign</h3>
-                  <p className="project-summary">
-                    Improving booking clarity and reducing failed ride attempts
-                    through flow and UI changes.
-                  </p>
-                  <Link href="/projects/angkas" className="project-cta">
-                    View full case study <GoogleIcon name="arrow_forward" size={16} />
-                  </Link>
-                </div>
-              </article>
-            </li>
+              <p className="about-copy">
+                I&apos;m a junior UX designer with an analytics background. I take
+                ambiguous, real-world problems and turn them into clear flows, usable
+                interfaces, and measurable improvements.
+              </p>
+              <p className="about-copy">
+                I&apos;m looking for roles where I can contribute across research, IA,
+                UI, and prototyping while learning with a strong product team.
+              </p>
 
-            <li>
-              <article className="project-item" data-project="kuryenteph">
-                <span className="project-default-title" aria-hidden="true">
-                  KuryentePH dashboard
-                </span>
-                <div className="project-overlay">
-                  <h3 className="project-name">KuryentePH dashboard</h3>
-                  <p className="project-summary">
-                    Helping households understand daily energy use with clearer
-                    breakdowns and trends.
-                  </p>
-                  <Link href="/projects/kuryenteph" className="project-cta">
-                    View full case study <GoogleIcon name="arrow_forward" size={16} />
-                  </Link>
-                </div>
-              </article>
-            </li>
+              <div className="about-actions">
+                <Link href="/about" className="about-cta about-cta-primary">
+                  Read my story
+                  <span className="about-cta-icon" aria-hidden="true">
+                    <GoogleIcon name="arrow_forward" size={18} />
+                  </span>
+                </Link>
+                <Link href="/resume" className="about-cta about-cta-tertiary">
+                  My resume
+                  <span className="about-cta-icon" aria-hidden="true">
+                    <GoogleIcon name="arrow_forward" size={18} />
+                  </span>
+                </Link>
+              </div>
+            </div>
 
-            <li>
-              <article className="project-item" data-project="fastph">
-                <span className="project-default-title" aria-hidden="true">
-                  FastPH service flow
-                </span>
-                <div className="project-overlay">
-                  <h3 className="project-name">FastPH service flow</h3>
-                  <p className="project-summary">
-                    Redesigning task matching to reduce drop-offs for both
-                    customers and workers.
-                  </p>
-                  <Link href="/projects/fastph" className="project-cta">
-                    View full case study <GoogleIcon name="arrow_forward" size={16} />
-                  </Link>
-                </div>
-              </article>
-            </li>
-          </ul>
-
-          <div className="projects-actions">
-            <Link href="/projects" className="projects-page-cta">
-              Explore all projects
-            </Link>
+            <aside className="about-highlights" aria-label="What I bring">
+              <h3 className="about-highlights-title">What I bring</h3>
+              <ul className="about-highlights-list">
+                <li>
+                  <span className="about-highlight-title">Generalist UX</span>
+                  <span className="about-highlight-copy">Research, IA, UI, prototyping, and handoff-ready specs.</span>
+                </li>
+                <li>
+                  <span className="about-highlight-title">Analytics mindset</span>
+                  <span className="about-highlight-copy">Define success metrics, validate assumptions, iterate with evidence.</span>
+                </li>
+                <li>
+                  <span className="about-highlight-title">Niches</span>
+                  <span className="about-highlight-copy">Service flows, dashboards, and lightweight design systems.</span>
+                </li>
+              </ul>
+            </aside>
           </div>
         </div>
       </section>
 
-      <section id="about" className="about-preview" ref={aboutSectionRef}>
-        <div className="about-bg" ref={aboutBgRef} />
-        <div className="about-inner" ref={aboutInnerRef}>
-          <h2 className="about-title">About me</h2>
-
-          <p className="about-copy">
-            I work on messy, real world problems and turn them into clear,
-            usable systems. My analytics background helps me measure what works
-            and design with evidence, not guesswork.
-          </p>
-
-          <div className="about-actions">
-            <Link href="/about" className="about-cta about-cta-primary">
-              Read my story
-              <span className="about-cta-icon" aria-hidden="true">
-                <GoogleIcon name="arrow_forward" size={18} />
-              </span>
-            </Link>
-            <Link href="/resume" className="about-cta about-cta-tertiary">
-              My resume
-              <span className="about-cta-icon" aria-hidden="true">
-                <GoogleIcon name="arrow_forward" size={18} />
-              </span>
+      <section id="projects" className="projects-preview" ref={projectsSectionRef}>
+        <div className="projects-bg" ref={projectsBgRef} />
+        <div className="projects-inner" ref={projectsInnerRef}>
+          <div className="projects-header">
+            <h2 className="projects-title">Featured case studies</h2>
+            <Link href="/projects" className="projects-page-cta">
+              Explore all projects
             </Link>
           </div>
+
+          <ul className="projects-list">
+            {featuredProjects.map((project) => (
+              <li key={project.slug}>
+                <ProjectCard project={project} />
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

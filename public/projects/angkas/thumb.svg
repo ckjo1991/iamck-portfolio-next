@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-label="Angkas app redesign thumbnail">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="0.55" stop-color="#0b0b0b"/>
+      <stop offset="1" stop-color="#0a1b3a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0.95"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect width="1200" height="750" fill="url(#grid)"/>
+  <rect x="0" y="0" width="12" height="750" fill="url(#accent)"/>
+
+  <g transform="translate(86 106)">
+    <text x="0" y="0" fill="rgba(255,255,255,0.78)" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="18" letter-spacing="0.18em" text-transform="uppercase">
+      UX case study
+    </text>
+
+    <text x="0" y="66" fill="#ffffff" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="56" font-weight="700">
+      Angkas app redesign
+    </text>
+
+    <text x="0" y="108" fill="rgba(255,255,255,0.86)" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="22">
+      Booking flow clarity, feedback states, and UI hierarchy.
+    </text>
+
+    <g transform="translate(0 160)">
+      <rect x="0" y="0" width="340" height="168" rx="18" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.14)"/>
+      <rect x="18" y="18" width="304" height="16" rx="8" fill="rgba(255,255,255,0.16)"/>
+      <rect x="18" y="52" width="256" height="14" rx="7" fill="rgba(255,255,255,0.12)"/>
+      <rect x="18" y="82" width="286" height="14" rx="7" fill="rgba(255,255,255,0.12)"/>
+      <rect x="18" y="112" width="210" height="14" rx="7" fill="rgba(255,255,255,0.12)"/>
+      <rect x="18" y="134" width="140" height="22" rx="11" fill="rgba(37,99,235,0.35)"/>
+    </g>
+  </g>
+</svg>
+

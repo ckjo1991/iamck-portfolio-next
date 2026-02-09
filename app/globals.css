@@ -5,6 +5,8 @@
   --background: #ffffff;
   --foreground: #171717;
   --focus-ring: #1d4ed8;
+  --container: 1040px;
+  --container-text: 720px;
   --section-pt: 120px;
   --section-pb: 180px;
   --section-pt-mobile: 88px;
@@ -104,7 +106,7 @@ section {
 }
 
 .breadcrumbs {
-  max-width: 1040px;
+  max-width: var(--container);
   margin: 0 auto 18px;
   padding: 0 24px;
 }
@@ -138,7 +140,7 @@ section {
 }
 
 .site-footer-inner {
-  max-width: 1040px;
+  max-width: var(--container);
   margin: 0 auto;
   padding: 28px 24px 32px;
 }
