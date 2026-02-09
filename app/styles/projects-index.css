@@ -74,15 +74,15 @@
 }
 
 .project-overview[data-project="angkas"] {
-  --project-accent: #0b0b0b;
+  --project-accent: #2563eb;
 }
 
 .project-overview[data-project="kuryenteph"] {
-  --project-accent: #1d4ed8;
+  --project-accent: #d97706;
 }
 
 .project-overview[data-project="fastph"] {
-  --project-accent: #0f766e;
+  --project-accent: #7c3aed;
 }
 
 .project-overview:hover,

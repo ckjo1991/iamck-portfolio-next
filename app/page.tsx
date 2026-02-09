@@ -104,7 +104,7 @@ export default function Page() {
 
           <ul className="projects-list">
             <li>
-              <article className="project-item">
+              <article className="project-item" data-project="angkas">
                 <span className="project-default-title" aria-hidden="true">
                   Angkas app redesign
                 </span>
@@ -122,7 +122,7 @@ export default function Page() {
             </li>
 
             <li>
-              <article className="project-item">
+              <article className="project-item" data-project="kuryenteph">
                 <span className="project-default-title" aria-hidden="true">
                   KuryentePH dashboard
                 </span>
@@ -140,7 +140,7 @@ export default function Page() {
             </li>
 
             <li>
-              <article className="project-item">
+              <article className="project-item" data-project="fastph">
                 <span className="project-default-title" aria-hidden="true">
                   FastPH service flow
                 </span>

@@ -9,7 +9,7 @@ export default function Projects() {
 
         <ul className="projects-list">
           <li>
-            <Link href="/projects/angkas" className="project-item">
+            <Link href="/projects/angkas" className="project-item" data-project="angkas">
               <h3 className="project-name">Angkas</h3>
               <p className="project-summary">
                 Improving booking clarity and reducing rider confusion in a
@@ -22,7 +22,7 @@ export default function Projects() {
           </li>
 
           <li>
-            <Link href="/projects/kuryenteph" className="project-item">
+            <Link href="/projects/kuryenteph" className="project-item" data-project="kuryenteph">
               <h3 className="project-name">KuryentePH</h3>
               <p className="project-summary">
                 Helping households understand electricity usage through clearer
@@ -35,7 +35,7 @@ export default function Projects() {
           </li>
 
           <li>
-            <Link href="/projects/fastph" className="project-item">
+            <Link href="/projects/fastph" className="project-item" data-project="fastph">
               <h3 className="project-name">FastPH</h3>
               <p className="project-summary">
                 Streamlining on-demand service booking to reduce drop-offs and speed up

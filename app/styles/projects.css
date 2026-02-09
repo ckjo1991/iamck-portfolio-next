@@ -58,6 +58,33 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.project-item {
+  --project-accent: #2563eb; /* default (Angkas) */
+}
+
+.project-item[data-project="angkas"] {
+  --project-accent: #2563eb;
+}
+
+.project-item[data-project="kuryenteph"] {
+  --project-accent: #d97706;
+}
+
+.project-item[data-project="fastph"] {
+  --project-accent: #7c3aed;
+}
+
+.project-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 6px;
+  background: var(--project-accent);
+  opacity: 0.9;
+}
+
 .project-item:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
