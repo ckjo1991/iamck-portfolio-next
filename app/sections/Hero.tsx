@@ -74,7 +74,6 @@ export default function Hero() {
     <section className="hero" ref={sectionRef}>
       <div className="hero-background" ref={backgroundRef} />
       <div className="hero-inner" ref={innerRef}>
-        <p className="hero-path">Home &gt; Hero</p>
         <p className="hero-eyebrow">hi, i’m ck</p>
 
         <h1 className="hero-title">
