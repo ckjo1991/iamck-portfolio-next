@@ -133,7 +133,7 @@ export default function Nav() {
           inert={isMobile && !open ? true : undefined}
         >
           <ul className="nav-list">
-            <li>
+            <li className="nav-item-home">
               <Link
                 href="/"
                 ref={firstLinkRef}

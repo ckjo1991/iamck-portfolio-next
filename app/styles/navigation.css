@@ -162,6 +162,11 @@ body.nav-open {
   align-items: center;
 }
 
+/* Best practice: logo/brand already links to Home on desktop; keep "Home" inside the mobile menu. */
+.nav-item-home {
+  display: none;
+}
+
 .nav-list a {
   display: inline-flex;
   align-items: center;
@@ -214,6 +219,10 @@ body.nav-open {
 
 /* Mobile full-screen drawer */
 @media (max-width: 768px) {
+  .nav-item-home {
+    display: flex;
+  }
+
   .nav-toggle {
     display: block;
     z-index: 1002;
