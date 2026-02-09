@@ -27,6 +27,7 @@ export default function ResumePage() {
               data-tooltip="Download resume"
             >
               <GoogleIcon name="download" size={18} />
+              <span className="sr-only">Download resume</span>
             </a>
           </div>
           <p className="resume-role">Junior UX Designer</p>

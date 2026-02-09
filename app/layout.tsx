@@ -45,9 +45,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta charSet="UTF-8" />
-      </head>
       <body suppressHydrationWarning>
         {/*
           Accessibility QA checklist (WCAG 2.2 AA):

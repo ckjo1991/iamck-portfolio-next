@@ -100,7 +100,7 @@ export default function Nav() {
   return (
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
       <div className="nav-inner">
-        <Link href="/" className="nav-brand">
+        <Link href="/" className="nav-brand" aria-label="Home">
           <span className="nav-brand-icon" aria-hidden="true">
             <Image src="/ck.svg" alt="" width={39} height={39} priority />
           </span>

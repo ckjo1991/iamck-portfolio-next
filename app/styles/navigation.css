@@ -173,20 +173,19 @@ body.nav-open {
   justify-content: center;
   min-height: 44px;
   padding: 10px 8px;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
   font-size: 16px;
-  line-height: 1;
-  opacity: 0.75;
-  transition: opacity 0.15s ease;
+  line-height: 1.2;
+  transition: color 0.15s ease;
 }
 
 .nav-list a:hover {
-  opacity: 1;
+  color: #ffffff;
 }
 
 .nav-list a[aria-current="page"] {
-  opacity: 1;
+  color: #ffffff;
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 0.2em;

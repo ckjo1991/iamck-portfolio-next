@@ -39,7 +39,11 @@ export default function StartupLoader() {
   }, []);
 
   return (
-    <div className={`startup-loader ${visible ? "is-visible" : "is-hidden"}`} aria-hidden={!visible}>
+    <div
+      className={`startup-loader ${visible ? "is-visible" : "is-hidden"}`}
+      // Avoid aria-hidden="false" (some automated scanners flag it). When visible, omit the attribute entirely.
+      aria-hidden={visible ? undefined : true}
+    >
       <div className="startup-loader-content" role="status" aria-live="polite">
         <span className="startup-loader-mark" aria-hidden="true">
           <Image className="startup-loader-logo startup-loader-logo--base" src="/ck.svg" alt="" width={84} height={84} priority />
