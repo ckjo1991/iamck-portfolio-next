@@ -6,7 +6,7 @@ import GoogleIcon from "../components/GoogleIcon";
 export const metadata: Metadata = {
   title: "Resume",
   description:
-    "Online resume of Ces Karlo Jose Obcena.",
+    "Online resume of CK Obcena.",
 };
 
 export default function ResumePage() {
@@ -17,7 +17,7 @@ export default function ResumePage() {
       <section className="resume-shell" aria-labelledby="resume-title">
         <header className="resume-hero">
           <div className="resume-title-row">
-            <h1 id="resume-title" className="resume-name">Ces Karlo Jose Obcena</h1>
+            <h1 id="resume-title" className="resume-name">CK Obcena</h1>
             <a
               href="/Ces-Obcena-2025.pdf"
               download="Ces Obcena 2025.pdf"
