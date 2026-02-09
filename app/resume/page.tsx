@@ -33,10 +33,10 @@ export default function ResumePage() {
           <p className="resume-role">Junior UX Designer</p>
           <ul className="resume-contact-list">
             <li>
-              <a href="tel:+639266305280">+63 926 6305280</a>
+              <span aria-label="Phone number">+63 926 6305280</span>
             </li>
             <li>
-              <a href="mailto:ckjobcena@gmail.com">ckjobcena@gmail.com</a>
+              <span aria-label="Email address">ckjobcena@gmail.com</span>
             </li>
             <li>Cubao, Quezon City</li>
           </ul>
