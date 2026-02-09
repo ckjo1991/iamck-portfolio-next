@@ -1,22 +1,29 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+
+function useMediaQuery(query: string) {
+  return useSyncExternalStore(
+    (onStoreChange) => {
+      const mq = window.matchMedia(query);
+      const handler = () => onStoreChange();
+      mq.addEventListener?.("change", handler);
+      return () => mq.removeEventListener?.("change", handler);
+    },
+    () => window.matchMedia(query).matches,
+    () => false
+  );
+}
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const isMobileQuery = useMemo(() => "(max-width: 768px)", []);
-  const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia(isMobileQuery).matches;
-  });
-  const [drawerMounted, setDrawerMounted] = useState(() => {
-    if (typeof window === "undefined") return true;
-    return !window.matchMedia(isMobileQuery).matches;
-  });
+  const isMobile = useMediaQuery(isMobileQuery);
+  const [drawerMounted, setDrawerMounted] = useState(true);
   const pathname = usePathname();
   const toggleRef = useRef<HTMLButtonElement | null>(null);
   const firstLinkRef = useRef<HTMLAnchorElement | null>(null);
@@ -56,30 +63,6 @@ export default function Nav() {
       window.requestAnimationFrame(() => firstLinkRef.current?.focus());
     });
   }, []);
-
-  useEffect(() => {
-    const mq = window.matchMedia(isMobileQuery);
-    const onChange = () => {
-      const mobile = mq.matches;
-      setIsMobile(mobile);
-
-      if (!mobile) {
-        if (unmountTimerRef.current) {
-          window.clearTimeout(unmountTimerRef.current);
-          unmountTimerRef.current = null;
-        }
-        setOpen(false);
-        setDrawerMounted(true);
-        return;
-      }
-
-      // Switching to mobile: respect current open state.
-      setDrawerMounted(open);
-    };
-
-    mq.addEventListener?.("change", onChange);
-    return () => mq.removeEventListener?.("change", onChange);
-  }, [isMobileQuery, open]);
 
   useEffect(() => {
     if (open && isMobile) {
@@ -147,7 +130,7 @@ export default function Nav() {
           className={`nav-drawer ${open ? "is-open" : ""}`}
           hidden={isMobile && !drawerMounted}
           // Prevent accidental focus when the drawer is mounted but closed.
-          inert={isMobile && !open ? "" : undefined}
+          inert={isMobile && !open ? true : undefined}
         >
           <ul className="nav-list">
             <li>
