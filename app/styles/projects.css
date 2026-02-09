@@ -54,24 +54,32 @@
   padding: 24px;
   border: 1px solid #e4e4e7;
   border-radius: 16px;
-  background: #ffffff;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--project-tint, #ffffff);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .project-item {
   --project-accent: #2563eb; /* default (Angkas) */
+  --project-tint: rgba(37, 99, 235, 0.06);
+  --project-tint-strong: rgba(37, 99, 235, 0.1);
 }
 
 .project-item[data-project="angkas"] {
   --project-accent: #2563eb;
+  --project-tint: rgba(37, 99, 235, 0.06);
+  --project-tint-strong: rgba(37, 99, 235, 0.1);
 }
 
 .project-item[data-project="kuryenteph"] {
   --project-accent: #d97706;
+  --project-tint: rgba(245, 158, 11, 0.07);
+  --project-tint-strong: rgba(245, 158, 11, 0.12);
 }
 
 .project-item[data-project="fastph"] {
   --project-accent: #7c3aed;
+  --project-tint: rgba(124, 58, 237, 0.06);
+  --project-tint-strong: rgba(124, 58, 237, 0.1);
 }
 
 .project-item::before {
@@ -88,6 +96,7 @@
 .project-item:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  background-color: var(--project-tint-strong, rgba(0, 0, 0, 0.02));
 }
 
 .project-default-title {
@@ -249,7 +258,7 @@
     opacity: 1;
     transform: none;
     pointer-events: auto;
-    background: #f4f4f5;
+    background: var(--project-tint, #f4f4f5);
     color: #0b0b0b;
     border-radius: 12px;
   }
