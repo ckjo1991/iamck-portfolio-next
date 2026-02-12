@@ -11,9 +11,6 @@ export default function Page() {
   const projectsSectionRef = useRef<HTMLElement | null>(null);
   const projectsBgRef = useRef<HTMLDivElement | null>(null);
   const projectsInnerRef = useRef<HTMLDivElement | null>(null);
-  const aboutSectionRef = useRef<HTMLElement | null>(null);
-  const aboutBgRef = useRef<HTMLDivElement | null>(null);
-  const aboutInnerRef = useRef<HTMLDivElement | null>(null);
   const contactSectionRef = useRef<HTMLElement | null>(null);
   const contactBgRef = useRef<HTMLDivElement | null>(null);
   const contactInnerRef = useRef<HTMLDivElement | null>(null);
@@ -21,7 +18,6 @@ export default function Page() {
   const parallaxLayers = useMemo(
     () => [
       { sectionRef: projectsSectionRef, bgRef: projectsBgRef, innerRef: projectsInnerRef, bgRange: 12, innerRange: 4 },
-      { sectionRef: aboutSectionRef, bgRef: aboutBgRef, innerRef: aboutInnerRef, bgRange: 10, innerRange: -3 },
       { sectionRef: contactSectionRef, bgRef: contactBgRef, innerRef: contactInnerRef, bgRange: 10, innerRange: 4 },
     ],
     []
@@ -31,6 +27,8 @@ export default function Page() {
   return (
     <main id="main-content">
       <Hero />
+      {/* Gradient Spacer for visual transition */}
+      <div className="h-32 bg-gradient-to-b from-[#0b0b0b] to-[var(--background)]" />
 
       <section id="projects" className="projects-preview" ref={projectsSectionRef} aria-labelledby="projects-heading">
         <div className="projects-bg" ref={projectsBgRef} />
@@ -64,33 +62,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="about" className="about-preview" ref={aboutSectionRef} aria-labelledby="about-heading">
-        <div className="about-bg" ref={aboutBgRef} />
-        <div className="about-inner" ref={aboutInnerRef}>
-          <h2 id="about-heading" className="about-title">About me</h2>
-
-          <p className="about-copy">
-            I work on messy, real world problems and turn them into clear,
-            usable systems. My analytics background helps me measure what works
-            and design with evidence, not guesswork.
-          </p>
-
-          <div className="about-actions">
-            <Link href="/about" className="about-cta about-cta-primary">
-              Read my story
-              <span className="about-cta-icon" aria-hidden="true">
-                <GoogleIcon name="arrow_forward" size={18} />
-              </span>
-            </Link>
-            <Link href="/resume" className="about-cta about-cta-tertiary">
-              My resume
-              <span className="about-cta-icon" aria-hidden="true">
-                <GoogleIcon name="arrow_forward" size={18} />
-              </span>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* About preview removed from homepage to keep full About page at /about */}
 
       <section id="contact" className="contact-preview" ref={contactSectionRef} aria-labelledby="contact-heading">
         <div className="contact-bg" ref={contactBgRef} />
