@@ -64,9 +64,11 @@
   }
 }
 
-.nav-brand-icon:hover {
-  transform: translateY(-2px) scale(1.08);
-  box-shadow: 0 8px 20px rgba(11, 11, 11, 0.12);
+@media (hover: hover) {
+  .nav-brand-icon:hover {
+    transform: translateY(-2px) scale(1.08);
+    box-shadow: 0 8px 20px rgba(11, 11, 11, 0.12);
+  }
 }
 
 @keyframes ck-breathe {
@@ -207,8 +209,13 @@ body.nav-open {
 
 .nav-list a.nav-cta:hover {
   background: #f3f4f6;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+}
+
+@media (hover: hover) {
+  .nav-list a.nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+  }
 }
 
 .nav-list a:focus-visible {
@@ -297,14 +304,18 @@ body.nav-open {
     transition: transform 180ms ease, color 180ms ease, letter-spacing 180ms ease;
   }
 
-  .nav-list a:hover {
-    color: #d7ffde;
-    letter-spacing: 0.02em;
-    transform: translateY(-2px) scale(1.03);
+  @media (hover: hover) {
+    .nav-list a:hover {
+      color: #d7ffde;
+      letter-spacing: 0.02em;
+      transform: translateY(-2px) scale(1.03);
+    }
   }
 
-  .nav-list a:active {
-    transform: scale(0.98);
+  @media (hover: none) {
+    .nav-list a:active {
+      opacity: 0.9;
+    }
   }
 
   .nav-list a.nav-cta {

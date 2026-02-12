@@ -40,9 +40,17 @@
   transform: translateX(0);
 }
 
-.back-to-top:hover {
-  transform: translateX(0) translateY(-4px);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+@media (hover: hover) {
+  .back-to-top:hover {
+    transform: translateX(0) translateY(-4px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+  }
+}
+
+@media (hover: none) {
+  .back-to-top:active {
+    opacity: 0.9;
+  }
 }
 
 .back-to-top:focus-visible {

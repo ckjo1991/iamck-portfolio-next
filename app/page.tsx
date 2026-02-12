@@ -1,161 +1,59 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useMemo, useRef } from "react";
 import Hero from "./sections/Hero";
 import Link from "next/link";
 import GoogleIcon from "./components/GoogleIcon";
+import { projects } from "./data/projects";
+import { useSectionParallax } from "./hooks/useSectionParallax";
 
 export default function Page() {
   const projectsSectionRef = useRef<HTMLElement | null>(null);
   const projectsBgRef = useRef<HTMLDivElement | null>(null);
   const projectsInnerRef = useRef<HTMLDivElement | null>(null);
-
   const aboutSectionRef = useRef<HTMLElement | null>(null);
   const aboutBgRef = useRef<HTMLDivElement | null>(null);
   const aboutInnerRef = useRef<HTMLDivElement | null>(null);
-
   const contactSectionRef = useRef<HTMLElement | null>(null);
   const contactBgRef = useRef<HTMLDivElement | null>(null);
   const contactInnerRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      if (projectsBgRef.current) projectsBgRef.current.style.transform = "none";
-      if (projectsInnerRef.current) projectsInnerRef.current.style.transform = "none";
-      if (aboutBgRef.current) aboutBgRef.current.style.transform = "none";
-      if (aboutInnerRef.current) aboutInnerRef.current.style.transform = "none";
-      if (contactBgRef.current) contactBgRef.current.style.transform = "none";
-      if (contactInnerRef.current) contactInnerRef.current.style.transform = "none";
-      return;
-    }
+  const parallaxLayers = useMemo(
+    () => [
+      { sectionRef: projectsSectionRef, bgRef: projectsBgRef, innerRef: projectsInnerRef, bgRange: 12, innerRange: 4 },
+      { sectionRef: aboutSectionRef, bgRef: aboutBgRef, innerRef: aboutInnerRef, bgRange: 10, innerRange: -3 },
+      { sectionRef: contactSectionRef, bgRef: contactBgRef, innerRef: contactInnerRef, bgRange: 10, innerRange: 4 },
+    ],
+    []
+  );
+  useSectionParallax(parallaxLayers);
 
-    let rafId = 0;
-    let ticking = false;
-
-    const clamp = (value: number, min: number, max: number) => (
-      Math.min(max, Math.max(min, value))
-    );
-
-    const getSectionOffset = (section: HTMLElement | null, range: number) => {
-      if (!section) return 0;
-
-      const rect = section.getBoundingClientRect();
-      const viewportCenter = window.innerHeight / 2;
-      const sectionCenter = rect.top + rect.height / 2;
-      const distance = sectionCenter - viewportCenter;
-      const maxDistance = (window.innerHeight + rect.height) / 2;
-
-      if (!maxDistance) return 0;
-
-      const normalized = clamp(distance / maxDistance, -1, 1);
-      return -normalized * range;
-    };
-
-    const applyTransforms = () => {
-      if (projectsBgRef.current) {
-        projectsBgRef.current.style.transform = `translateY(${getSectionOffset(projectsSectionRef.current, 12)}px)`;
-      }
-      if (projectsInnerRef.current) {
-        projectsInnerRef.current.style.transform = `translateY(${getSectionOffset(projectsSectionRef.current, 4)}px)`;
-      }
-
-      if (aboutBgRef.current) {
-        aboutBgRef.current.style.transform = `translateY(${getSectionOffset(aboutSectionRef.current, 10)}px)`;
-      }
-      if (aboutInnerRef.current) {
-        aboutInnerRef.current.style.transform = `translateY(${getSectionOffset(aboutSectionRef.current, -3)}px)`;
-      }
-
-      if (contactBgRef.current) {
-        contactBgRef.current.style.transform = `translateY(${getSectionOffset(contactSectionRef.current, 10)}px)`;
-      }
-      if (contactInnerRef.current) {
-        contactInnerRef.current.style.transform = `translateY(${getSectionOffset(contactSectionRef.current, 4)}px)`;
-      }
-    };
-
-    const requestTransformUpdate = () => {
-      if (ticking) return;
-      ticking = true;
-      rafId = window.requestAnimationFrame(() => {
-        applyTransforms();
-        ticking = false;
-      });
-    };
-
-    window.addEventListener("scroll", requestTransformUpdate, { passive: true });
-    window.addEventListener("resize", requestTransformUpdate);
-    requestTransformUpdate();
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      window.removeEventListener("scroll", requestTransformUpdate);
-      window.removeEventListener("resize", requestTransformUpdate);
-    };
-  }, []);
   return (
     <main id="main-content">
       <Hero />
 
-      <section id="projects" className="projects-preview" ref={projectsSectionRef}>
+      <section id="projects" className="projects-preview" ref={projectsSectionRef} aria-labelledby="projects-heading">
         <div className="projects-bg" ref={projectsBgRef} />
         <div className="projects-inner" ref={projectsInnerRef}>
-          <h2 className="projects-title">Selected projects</h2>
+          <h2 id="projects-heading" className="projects-title">Selected projects</h2>
 
           <ul className="projects-list">
-            <li>
-              <article className="project-item" data-project="angkas">
-                <span className="project-default-title" aria-hidden="true">
-                  Angkas app redesign
-                </span>
-                <div className="project-overlay">
-                  <h3 className="project-name">Angkas app redesign</h3>
-                  <p className="project-summary">
-                    Improving booking clarity and reducing failed ride attempts
-                    through flow and UI changes.
-                  </p>
-                  <Link href="/projects/angkas" className="project-cta">
-                    View full case study <GoogleIcon name="arrow_forward" size={16} />
-                  </Link>
-                </div>
-              </article>
-            </li>
-
-            <li>
-              <article className="project-item" data-project="kuryenteph">
-                <span className="project-default-title" aria-hidden="true">
-                  KuryentePH dashboard
-                </span>
-                <div className="project-overlay">
-                  <h3 className="project-name">KuryentePH dashboard</h3>
-                  <p className="project-summary">
-                    Helping households understand daily energy use with clearer
-                    breakdowns and trends.
-                  </p>
-                  <Link href="/projects/kuryenteph" className="project-cta">
-                    View full case study <GoogleIcon name="arrow_forward" size={16} />
-                  </Link>
-                </div>
-              </article>
-            </li>
-
-            <li>
-              <article className="project-item" data-project="fastph">
-                <span className="project-default-title" aria-hidden="true">
-                  FastPH service flow
-                </span>
-                <div className="project-overlay">
-                  <h3 className="project-name">FastPH service flow</h3>
-                  <p className="project-summary">
-                    Redesigning task matching to reduce drop-offs for both
-                    customers and workers.
-                  </p>
-                  <Link href="/projects/fastph" className="project-cta">
-                    View full case study <GoogleIcon name="arrow_forward" size={16} />
-                  </Link>
-                </div>
-              </article>
-            </li>
+            {projects.map((project) => (
+              <li key={project.slug}>
+                <article className="project-item" data-project={project.slug}>
+                  <span className="project-default-title" aria-hidden="true">
+                    {project.title}
+                  </span>
+                  <div className="project-overlay">
+                    <h3 className="project-name">{project.title}</h3>
+                    <p className="project-summary">{project.summary}</p>
+                    <Link href={`/projects/${project.slug}`} className="project-cta">
+                      View full case study <GoogleIcon name="arrow_forward" size={16} />
+                    </Link>
+                  </div>
+                </article>
+              </li>
+            ))}
           </ul>
 
           <div className="projects-actions">
@@ -166,10 +64,10 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="about" className="about-preview" ref={aboutSectionRef}>
+      <section id="about" className="about-preview" ref={aboutSectionRef} aria-labelledby="about-heading">
         <div className="about-bg" ref={aboutBgRef} />
         <div className="about-inner" ref={aboutInnerRef}>
-          <h2 className="about-title">About me</h2>
+          <h2 id="about-heading" className="about-title">About me</h2>
 
           <p className="about-copy">
             I work on messy, real world problems and turn them into clear,
@@ -194,10 +92,10 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="contact" className="contact-preview" ref={contactSectionRef}>
+      <section id="contact" className="contact-preview" ref={contactSectionRef} aria-labelledby="contact-heading">
         <div className="contact-bg" ref={contactBgRef} />
         <div className="contact-inner" ref={contactInnerRef}>
-          <h2 className="contact-title">Get in touch</h2>
+          <h2 id="contact-heading" className="contact-title">Get in touch</h2>
 
           <p className="contact-copy">
             If you want to talk about a project, collaboration, or just compare

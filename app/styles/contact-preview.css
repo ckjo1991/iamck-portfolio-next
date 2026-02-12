@@ -23,6 +23,21 @@
   will-change: transform;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .contact-bg,
+  .contact-inner {
+    will-change: auto;
+  }
+
+  .contact-social-btn {
+    transition: none;
+  }
+
+  .contact-social-btn:hover {
+    transform: none;
+  }
+}
+
 .contact-title {
   font-size: 34px;
   font-weight: 600;
@@ -63,7 +78,19 @@
 .contact-social-btn:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.42);
-  transform: translateY(-1px);
+}
+
+@media (hover: hover) {
+  .contact-social-btn:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* Touch: subtle tap feedback */
+@media (hover: none) {
+  .contact-social-btn:active {
+    background: rgba(255, 255, 255, 0.1);
+  }
 }
 
 @media (max-width: 768px) {

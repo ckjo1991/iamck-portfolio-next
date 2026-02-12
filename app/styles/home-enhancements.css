@@ -16,8 +16,19 @@
 .cta-primary:hover {
   text-decoration: none;
   background: #f3f4f6;
-  transform: translateY(-1px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+@media (hover: hover) {
+  .cta-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  }
+}
+
+@media (hover: none) {
+  .cta-primary:active {
+    background: #e5e7eb;
+  }
 }
 
 .cta-primary:focus-visible {

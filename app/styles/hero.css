@@ -29,6 +29,13 @@
   will-change: transform;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hero-background,
+  .hero-inner {
+    will-change: auto;
+  }
+}
+
 .hero-eyebrow {
   font-size: 13px;
   letter-spacing: 0.08em;
@@ -96,6 +103,16 @@
 .btn-secondary:focus-visible {
   outline: 2px solid #ffffff;
   outline-offset: 2px;
+}
+
+@media (hover: none) {
+  .btn-primary:active {
+    background: #e5e5e5;
+  }
+
+  .btn-secondary:active {
+    background: rgba(255, 255, 255, 0.15);
+  }
 }
 
 @media (max-width: 768px) {

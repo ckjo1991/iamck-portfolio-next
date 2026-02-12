@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { projects } from "../data/projects";
 
 export default function Footer() {
   return (
@@ -18,7 +19,7 @@ export default function Footer() {
 
             <nav className="site-footer-navgrid" aria-label="Footer navigation">
               <div className="site-footer-col">
-                <p className="site-footer-col-title">Explore</p>
+                <h2 className="site-footer-col-title">Explore</h2>
                 <ul>
                   <li>
                     <Link href="/">Home</Link>
@@ -36,17 +37,13 @@ export default function Footer() {
               </div>
 
               <div className="site-footer-col">
-                <p className="site-footer-col-title">Case Studies</p>
+                <h2 className="site-footer-col-title">Case Studies</h2>
                 <ul>
-                  <li>
-                    <Link href="/projects/angkas">Angkas app redesign</Link>
-                  </li>
-                  <li>
-                    <Link href="/projects/kuryenteph">KuryentePH dashboard</Link>
-                  </li>
-                  <li>
-                    <Link href="/projects/fastph">FastPH service flow</Link>
-                  </li>
+                  {projects.map((project) => (
+                    <li key={project.slug}>
+                      <Link href={`/projects/${project.slug}`}>{project.title}</Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </nav>

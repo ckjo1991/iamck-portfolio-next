@@ -111,7 +111,7 @@ export default function Nav() {
           type="button"
           className={`nav-toggle ${open ? "is-open" : ""}`}
           ref={toggleRef}
-          aria-label="Toggle navigation"
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="primary-nav"
           onClick={() => {

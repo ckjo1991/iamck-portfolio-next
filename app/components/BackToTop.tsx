@@ -3,6 +3,11 @@
 import { useEffect, useState } from "react";
 import GoogleIcon from "./GoogleIcon";
 
+/**
+ * Back-to-top button: shown after scrolling past the hero.
+ * DOM dependency: expects .hero (first section) and .site-header to exist for
+ * trigger position. If those class names change, update getTriggerY here.
+ */
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -58,6 +63,7 @@ export default function BackToTop() {
       className={`back-to-top ${visible ? "is-visible" : ""}`}
       tabIndex={visible ? 0 : -1}
       onClick={handleBackToTop}
+      aria-label="Back to top"
     >
       <span className="back-to-top-icon" aria-hidden="true">
         <GoogleIcon name="arrow_upward" size={18} />

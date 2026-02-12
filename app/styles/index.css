@@ -1,0 +1,18 @@
+/**
+ * Central import for section and component styles.
+ * Order: base/scroll → layout/nav → sections → components.
+ */
+@import "./scroll-snap.css";
+@import "./navigation.css";
+@import "./hero.css";
+@import "./projects.css";
+@import "./about-preview.css";
+@import "./about.css";
+@import "./contact-preview.css";
+@import "./home-enhancements.css";
+@import "./case-study.css";
+@import "./projects-index.css";
+@import "./resume.css";
+@import "./back-to-top.css";
+@import "./startup-loader.css";
+@import "./not-found.css";

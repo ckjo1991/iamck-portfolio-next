@@ -24,6 +24,24 @@
   will-change: transform;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .projects-bg,
+  .projects-inner {
+    will-change: auto;
+  }
+
+  .project-item,
+  .project-item:hover,
+  .project-overlay,
+  .project-default-title {
+    transition: none;
+  }
+
+  .project-item:hover {
+    transform: none;
+  }
+}
+
 .projects-title {
   font-size: 32px;
   font-weight: 600;
@@ -93,10 +111,33 @@
   opacity: 0.9;
 }
 
-.project-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-  background-color: var(--project-tint-strong, rgba(0, 0, 0, 0.02));
+/* Desktop/pointer: lift and overlay on hover. Touch: overlay shown via (hover: none) block below. */
+@media (hover: hover) {
+  .project-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    background-color: var(--project-tint-strong, rgba(0, 0, 0, 0.02));
+  }
+
+  .project-item:hover .project-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .project-item:hover .project-default-title {
+    opacity: 0.12;
+  }
+}
+
+.project-item:focus-within .project-overlay {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.project-item:focus-within .project-default-title {
+  opacity: 0.12;
 }
 
 .project-default-title {
@@ -125,18 +166,6 @@
   transform: translateY(10px);
   pointer-events: none;
   transition: opacity 220ms ease, transform 220ms ease;
-}
-
-.project-item:hover .project-overlay,
-.project-item:focus-within .project-overlay {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.project-item:hover .project-default-title,
-.project-item:focus-within .project-default-title {
-  opacity: 0.12;
 }
 
 .project-name {
@@ -168,13 +197,16 @@
   font-weight: 600;
   text-decoration: none;
   background: rgba(255, 255, 255, 0.08);
-  transition: background-color 140ms ease, transform 140ms ease;
+  transition: background-color 140ms ease, border-color 140ms ease, transform 140ms ease;
 }
 
-.project-cta:hover {
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.22);
-  transform: translateY(-1px);
+@media (hover: hover) {
+  .project-cta:hover {
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+  }
 }
 
 .projects-actions {
@@ -201,7 +233,12 @@
   text-decoration: none;
   background: #0b0b0b;
   color: #ffffff;
-  transform: translateY(-1px);
+}
+
+@media (hover: hover) {
+  .projects-page-cta:hover {
+    transform: translateY(-1px);
+  }
 }
 
 @media (max-width: 768px) {

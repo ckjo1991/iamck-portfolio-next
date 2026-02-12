@@ -9,3 +9,9 @@ html {
 .contact-preview {
   scroll-snap-align: start;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
