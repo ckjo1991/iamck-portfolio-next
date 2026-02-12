@@ -15,31 +15,53 @@
 :root {
   /* Light Mode (Default) */
   --background: #ffffff;
+  --foreground: #111827;
   --color-text: #111827;
   --color-text-muted: #4b5563;
   --color-surface: #ffffff;
   --color-surface-alt: #f8fafc;
   --color-accent: #1d4ed8;
   --color-border: #e5e7eb;
+  --color-border-muted: #e5e7eb;
+  --focus-ring: var(--color-accent);
+
+  /* Legacy spacing tokens still used by section styles */
+  --section-pt: 120px;
+  --section-pb: 180px;
+  --section-pt-mobile: 88px;
+  --section-pb-mobile: 140px;
+  --section-sides: 24px;
+  --section-sides-mobile: 16px;
+  --section-pb-safe: calc(var(--section-pb) + env(safe-area-inset-bottom));
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
   
   /* Shared Hero Tokens */
   --color-hero-bg: #0b0b0b;
   --color-hero-text: #ffffff;
 
+  --shadow-card: 0 8px 20px rgba(15, 23, 42, 0.06);
+  --shadow-focus: 0 8px 18px rgba(0, 0, 0, 0.12);
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
+  --bp-tablet: 768px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0b0b0b;
+    --foreground: #f9fafb;
     --color-text: #f9fafb;
     --color-text-muted: #9ca3af;
     --color-surface: #111827;
     --color-surface-alt: #1f2937;
     --color-accent: #3b82f6; 
     --color-border: #374151;
+    --color-border-muted: #4b5563;
   }
 }
 
